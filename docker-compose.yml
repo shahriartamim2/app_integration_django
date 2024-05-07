@@ -13,3 +13,5 @@ services:
     build: ./react-server
     ports:
       - "3000:3000"
+    # volumes:
+    #   - ./react-server:/app/frontend

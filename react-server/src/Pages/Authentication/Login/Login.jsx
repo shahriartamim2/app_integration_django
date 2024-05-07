@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
+import bg from "../../../assets/bg.jpg"
 
 const Login = () => {
   const { register, handleSubmit } = useForm();
@@ -21,17 +22,25 @@ const Login = () => {
       .then((responseData) => {
         localStorage.setItem("token", responseData.key);
         window.location.reload();
+        
       });
   };
 
   return (
-    <div className="flex justify-center">
+    <div
+      className="flex justify-center"
+      style={{
+        backgroundImage: `url(${bg})`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <Helmet>
         <title>Login</title>
       </Helmet>
-      <div className="w-full max-w-md sm:bg-base-200 sm:my-6 2xl:my-20 p-5 sm:p-10 sm:rounded-lg">
+      <div className="w-full max-w-md bg-white sm:my-6 2xl:my-20 p-5 sm:p-10 sm:rounded-lg shadow-2xl">
         <div>
-          <h1 className="text-4xl font-extrabold cinzel-font uppercase text-center mb-10 text-success">
+          <h1 className="text-4xl font-extrabold cinzel-font uppercase text-center mb-10 text-primary">
             Login
           </h1>
         </div>
@@ -40,7 +49,7 @@ const Login = () => {
             <div>
               <label
                 htmlFor="username"
-                className="text-xl font-semibold text-gray-500"
+                className="text-xl font-semibold text-primary"
               >
                 Username
               </label>
@@ -57,7 +66,7 @@ const Login = () => {
             <div>
               <label
                 htmlFor="password"
-                className="text-xl font-semibold text-gray-500"
+                className="text-xl font-semibold text-primary"
               >
                 Password
               </label>
@@ -70,18 +79,22 @@ const Login = () => {
                   required: true,
                 })}
               />
-              <input
-                type="checkbox"
-                id="showPasswordToggle"
-                className="mt-2"
-                onChange={() => setShowPassword(!showPassword)}
-              />
-              <label htmlFor="showPasswordToggle">Show Password</label>
+              <div className="flex content-center items-center gap-2 py-2">
+                <input
+                  type="checkbox"
+                  id="showPasswordToggle"
+                  className="checkbox checkbox-primary"
+                  onChange={() => setShowPassword(!showPassword)}
+                />
+                <label htmlFor="showPasswordToggle" className="text-secondary">
+                  Show Password
+                </label>
+              </div>
             </div>
             <div className="flex justify-center">
               <button
                 type="submit"
-                className="btn btn-success w-1/2 text-white font-semibold"
+                className="btn btn-primary w-1/2 text-white font-semibold"
               >
                 Login{" "}
                 {isLoginLoading && (

@@ -57,7 +57,7 @@ const Navbar = () => {
           {isSystemAdmin && (
             <Link
               to="/system-admin/dashboard"
-              className="btn btn-primary border-0 bg-[#4F65F1] text-white font-normal min-h-0 h-9 rounded-full text"
+              className="btn btn-outline btn-primary font-bold  text-white min-h-0 h-9 rounded-full text"
             >
               Dashboard
             </Link>
@@ -65,7 +65,7 @@ const Navbar = () => {
           {isSTSManager && (
             <Link
               to="/sts-manager/dashboard"
-              className="btn btn-primary border-0 bg-[#4F65F1] text-white font-normal min-h-0 h-9 rounded-full text"
+              className="btn btn-outline btn-primary font-bold  text-white min-h-0 h-9 rounded-full text"
             >
               Dashboard
             </Link>
@@ -73,7 +73,7 @@ const Navbar = () => {
           {isLandfillManager && (
             <Link
               to="/landfill-manager/dashboard"
-              className="btn btn-primary border-0 bg-[#4F65F1] text-white font-normal min-h-0 h-9 rounded-full text"
+              className="btn btn-outline  btn-primary font-bold  text-white min-h-0 h-9 rounded-full text"
             >
               Dashboard
             </Link>
@@ -82,7 +82,7 @@ const Navbar = () => {
         {user?.username ? (
           <div>
             <button
-              className="btn btn-error border-0 min-h-0 h-9 rounded-full"
+              className="btn btn-primary border-0 min-h-0 h-9 rounded-full" 
               onClick={() => handleLogOut()}
             >
               Logout
@@ -91,7 +91,7 @@ const Navbar = () => {
         ) : (
           <Link
             to="/login"
-            className="btn btn-info border-0 min-h-0 h-9 rounded-full"
+            className="btn btn-info text-white border-0 min-h-0 h-9 rounded-full"
           >
             Login
           </Link>
